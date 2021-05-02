@@ -1,0 +1,76 @@
+﻿@using TradeMvc.Models
+@model List<TradeProccess>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:10px">
+    <tr>
+        <th>
+            Sale ID
+        </th>
+        <th>
+            Product
+        </th>
+        <th>
+            Employee
+        </th>
+        <th>
+            Personal
+        </th>
+        <th>
+            Count
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Total
+        </th>
+        <th>
+            Date Time
+        </th>
+        <th>
+            Update
+        </th>
+        <th>
+            Details
+        </th>
+
+    </tr>
+
+    @foreach (var x in Model)
+    {
+<tr>
+    <td>
+        @x.TradeId
+    </td>
+    <td>
+        @x.Product.ProductName
+    </td>
+    <td>
+        @x.Employee.EmployeeName @x.Employee.EmployeeLastName
+    </td>
+    <td>
+        @x.Personal.PersonalName @x.Personal.PersonalLastName
+    </td>
+    <td>
+        @x.Count
+    </td>
+    <td>
+        @x.Price
+    </td>
+    <td>
+        @x.TotalAmount
+    </td>
+    <td>
+        @x.DateTimeTrade
+    </td>
+    <td><a href="@Url.Action("SaleGet", "Sale", new { id=@x.TradeId })" class="btn btn-primary">Update</a></td>
+    <td><a href="@Url.Action("DepartmentPersonalTrade", "Department", new { id=@x.PersonalId })" class="btn btn-success">Details</a></td>
+</tr>   
+
+    }
+</table>
+<a href=@Url.Action("NewSale", "Sale") class="btn btn-info">New Sale</a>

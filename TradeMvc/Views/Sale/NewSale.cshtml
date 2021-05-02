@@ -1,0 +1,31 @@
+﻿@model TradeMvc.Models.TradeProccess
+@{
+    ViewBag.Title = "NewSale";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>New Sale</h2>
+<br />
+@using (Html.BeginForm("NewSale", "Sale", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.Product)
+    @Html.DropDownListFor(x => x.ProductId, (List<SelectListItem>)ViewBag.vls, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Employee)
+    @Html.DropDownListFor(x => x.EmployeeId, (List<SelectListItem>)ViewBag.vls2, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Personal)
+    @Html.DropDownListFor(x => x.PersonalId, (List<SelectListItem>)ViewBag.vls3, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Count)
+    @Html.TextBoxFor(x => x.Count, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Price)
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TotalAmount)
+    @Html.TextBoxFor(x => x.TotalAmount, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">To Sale</button>
+}
+

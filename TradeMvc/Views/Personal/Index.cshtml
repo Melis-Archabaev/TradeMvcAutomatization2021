@@ -1,0 +1,59 @@
+﻿@using TradeMvc.Models
+@model List<Personal>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered" style="margin-top:10px">
+    <tr>
+        <th>
+            Personal ID
+        </th>
+        <th>
+            Personal Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Image
+        </th>
+        <th>
+            Department
+        </th>
+        <th>
+            Update
+        </th>
+        <th>
+            Details
+        </th>
+    </tr>
+
+    @foreach (var d in Model)
+    {
+<tr>
+    <td>
+        @d.PersonalId
+    </td>
+    <td>
+        @d.PersonalName
+    </td>
+    <td>
+        @d.PersonalLastName
+    </td>
+    <td>
+        @d.PersonalView
+    </td>
+    <td>
+        @d.Department.DepartmentName
+    </td>
+    <td><a href="@Url.Action("PersonalBring", "Personal", new { id=@d.PersonalId })" class="btn btn-primary">Update</a></td>
+    <td><a href="@Url.Action("DepartmentPersonalTrade", "Department", new { id=@d.PersonalId })" class="btn btn-success">Details</a></td>
+</tr>
+
+    }
+</table>
+<a href=@Url.Action("PersonalAdd", "Personal") class="btn btn-info">Personal Add</a>

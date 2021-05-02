@@ -1,0 +1,27 @@
+﻿@model TradeMvc.Models.Personal
+@{
+    ViewBag.Title = "PersonalAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Personal Add</h2>
+
+<br />
+@using (Html.BeginForm("PersonalAdd", "Personal", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.PersonalName)
+    @Html.TextBoxFor(x => x.PersonalName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.PersonalLastName)
+    @Html.TextBoxFor(x => x.PersonalLastName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.PersonalView)
+    @Html.TextBoxFor(x => x.PersonalView, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Department)
+    @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.vls, new { @class = "form-control" })
+    @*@Html.TextBoxFor(x => x.DepartmentId, new { @class = "form-control" })*@
+    <br />
+    <button class="btn btn-primary">Save</button>
+}
+

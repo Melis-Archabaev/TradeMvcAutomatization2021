@@ -1,0 +1,35 @@
+﻿@using TradeMvc.Models
+@model List<TradeProccess>
+@{
+    ViewBag.Title = "TradeEmployee";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Trade Employee</h2>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Employee Name:@ViewBag.EmpName</li>
+</ol>
+<table class="table table-condensed">
+    <tr>
+        <th>Trade ID</th>
+        <th>Product</th>
+        <th>Employee</th>
+        <th>Price</th>
+        <th>Count</th>
+        <th>Total Amount</th>
+        <th>Tarih</th>
+        <th>Yazdir</th>
+    </tr>
+    @foreach(var x in Model)
+    {
+        <tr>
+            <td>@x.TradeId</td>
+            <td>@x.Product.ProductName</td>
+            <td>@x.Personal.PersonalName @x.Personal.PersonalLastName</td>
+            <td>@x.Price</td>
+            <td>@x.Count</td>
+            <td>@x.TotalAmount</td>
+            <td>@x.DateTimeTrade</td>
+        </tr>
+    }
+</table>

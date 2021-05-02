@@ -1,0 +1,28 @@
+﻿@model TradeMvc.Models.Employee
+@{
+    ViewBag.Title = "EmployeeBring";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Employee Update</h2>
+<br />
+@using (Html.BeginForm("EmployeeUpdate", "Employee", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.EmployeeId)
+    @Html.LabelFor(x => x.EmployeeName)
+    @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.EmployeeName, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.EmployeeLastName)
+    @Html.TextBoxFor(x => x.EmployeeLastName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.EmployeeLastName, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.EmployeeCity)
+    @Html.TextBoxFor(x => x.EmployeeCity, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.EmployeeMail)
+    @Html.TextBoxFor(x => x.EmployeeMail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Update</button>
+</div>
+}

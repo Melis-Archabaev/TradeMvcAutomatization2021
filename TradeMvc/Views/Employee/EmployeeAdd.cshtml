@@ -1,0 +1,24 @@
+﻿@model TradeMvc.Models.Employee
+@{
+    ViewBag.Title = "NewEmployee";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>New Employee</h2>
+<br />
+@using (Html.BeginForm("EmployeeAdd", "Employee", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.EmployeeName)
+    @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.EmployeeLastName)
+    @Html.TextBoxFor(x => x.EmployeeLastName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.EmployeeCity)
+    @Html.TextBoxFor(x => x.EmployeeCity, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.EmployeeMail)
+    @Html.TextBoxFor(x => x.EmployeeMail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+}

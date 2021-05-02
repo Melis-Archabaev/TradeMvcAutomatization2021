@@ -1,0 +1,14 @@
+﻿@model TradeMvc.Models.Category
+@{
+    ViewBag.Title = "CategoryAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Yeni kategori sayfasi</h2>
+<br />
+@using (Html.BeginForm("CategoryAdd", "Category", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.CategoryName)
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+}

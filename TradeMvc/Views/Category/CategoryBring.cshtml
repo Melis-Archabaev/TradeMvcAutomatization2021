@@ -1,0 +1,18 @@
+﻿@model TradeMvc.Models.Category
+@{
+    ViewBag.Title = "CategoryBring";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>KategoriGetir</h2>
+<br />
+@using (Html.BeginForm("CategoryUpdate", "Category", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.CategoryName)
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.CategoryId)
+    </div>
+    <br />
+    <button class="btn btn-primary">Guncelle</button>
+}

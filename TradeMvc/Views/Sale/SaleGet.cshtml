@@ -1,0 +1,39 @@
+﻿@model TradeMvc.Models.TradeProccess
+@{
+    ViewBag.Title = "SaleGet";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Sale Update</h2>
+<br />
+@using (Html.BeginForm("ProductUpdate", "Product", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.TradeId)
+  
+
+    <br />
+    
+
+    <br />
+   
+
+    <br />
+    @Html.LabelFor(x => x.Count)
+    @Html.TextBoxFor(x => x.Count, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Price)
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    
+    @*@Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })*@
+    <br />
+    @Html.LabelFor(x => x.TotalAmount)
+    @Html.TextBoxFor(x => x.TotalAmount, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.DateTimeTrade)
+    @Html.TextBoxFor(x => x.DateTimeTrade, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Save</button>
+
+}
+

@@ -1,0 +1,34 @@
+﻿@using TradeMvc.Models
+@model List<Employee>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th> Employee ID</th>
+        <th> Employee Name</th>
+        <th> Employee LastName</th>
+        <th> Employee Email</th>
+        <th> Employee City</th>
+        <th> Employee Delete</th>
+        <th> Employee Update</th>
+        <th> Employee Details</th>
+    </tr>
+    @foreach(var x in Model)
+    {
+        <tr>
+            <td>@x.EmployeeId</td>
+            <td>@x.EmployeeName</td>
+            <td>@x.EmployeeLastName</td>
+            <td>@x.EmployeeMail</td>
+            <td>@x.EmployeeCity</td>
+            <td><a href="@Url.Action("DeleteEmployee","Employee", new { id=@x.EmployeeId })"  class="btn btn-danger">Delete</a></td>
+            <td><a href="@Url.Action("EmployeeBring","Employee", new { id=@x.EmployeeId })" class="btn btn-warning">Update</a></td>
+            <td><a href="@Url.Action("TradeEmployee","Employee", new { id=@x.EmployeeId })" class="btn btn-info">History</a></td>
+        </tr>
+    }
+</table>
+<a href="@Url.Action("EmployeeAdd", "Employee")" class="btn btn-primary">New Employee</a>
+

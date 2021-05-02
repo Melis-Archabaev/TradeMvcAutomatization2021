@@ -1,0 +1,43 @@
+﻿@using TradeMvc.Models
+@model List<Department>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:10px">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+           Department Name
+        </th>
+        <th>
+            Delete
+        </th>
+        <th>
+            Update
+        </th>
+        <th>
+            Details
+        </th>
+    </tr>
+
+    @foreach (var d in Model)
+    {
+<tr>
+    <td>
+        @d.DepartmentId
+    </td>
+    <td>
+        @d.DepartmentName
+    </td>
+    <td><a href="@Url.Action("DepartmentDelete", "Department", new { id=@d.DepartmentId })" class="btn btn-danger">Delete</a> </td>
+    <td><a href="@Url.Action("DepartmentBring", "Department", new { id=@d.DepartmentId })" class="btn btn-primary">Update</a></td>
+    <td><a href="@Url.Action("DepartmentDetails", "Department", new { id=@d.DepartmentId })" class="btn btn-success">Details</a></td>
+</tr>
+
+    }
+</table>
+<a href=@Url.Action("DepartmentAdd", "Department") class="btn btn-info">Department Add</a>
