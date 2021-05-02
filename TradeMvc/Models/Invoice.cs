@@ -37,5 +37,6 @@ namespace TradeMvc.Models
         //Recipient(Получатель)
         public string Recipient { get; set; }
         public ICollection<InvoicePen> InvoicePens { get; set; }
+        public ICollection<InvoicePen> InvoicePens { get; set; }
     }
 }
